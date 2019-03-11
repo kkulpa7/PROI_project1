@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1552336410 source:c:\users\kasia\desktop\project1\main.cpp
+1552338672 source:c:\users\kasia\desktop\project1\main.cpp
 	"functions.h"
 
-1552337963 c:\users\kasia\desktop\project1\functions.h
+1552338672 c:\users\kasia\desktop\project1\functions.h
 	<iostream>
 	<ctime>
 	<cstdlib>

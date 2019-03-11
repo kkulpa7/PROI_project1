@@ -14,11 +14,11 @@ public:
     number operator/(number);
 };
 void show(number);
-void show(number, number, number);
+void show(number, number, number, char);
 int octToDec(string);
 string decToOct(int);
 bool checkingNumer (string);
 void giveNumbers(number, number);
 void whatToDo(number, number);
-void whatToSee(number, number, number);
+void whatToSee(number, number, number, char);
 void menu();

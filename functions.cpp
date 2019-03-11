@@ -40,8 +40,9 @@ number number::operator/(number num){
 void show(number num){
     num.showValue();
 }
-void show(number num1, number num2, number num3){
+void show(number num1, number num2, number num3, char sign){
      num1.showValue();
+     cout<<sign;
      num2.showValue();
      cout<<"=";
      num3.showValue();
@@ -99,6 +100,7 @@ void giveNumbers(number *number1, number *number2){
 void whatToDo(number num1, number num2){
     short int option;
     number num3;
+    char sign;
     while(1){
         cout<<"\nWhat do you want to do?\n1. Add numbers.\n2. Subtract numbers.\n3. Multiply numbers.\n4. Divide numbers.\n5. Give another numbers.\n6. Exit.\nChose option: ";
         cin>>option;
@@ -109,19 +111,23 @@ void whatToDo(number num1, number num2){
         switch(option){
         case 1:
             num3=num1+num2;
-            whatToSee(num1, num2, num3);
+            sign='+';
+            whatToSee(num1, num2, num3, sign);
             break;
         case 2:
             num3=num1-num2;
-            whatToSee(num1, num2, num3);
+            sign='-';
+            whatToSee(num1, num2, num3, sign);
             break;
         case 3:
             num3=num1*num2;
-            whatToSee(num1, num2, num3);
+            sign='*';
+            whatToSee(num1, num2, num3, sign);
             break;
         case 4:
             num3=num1/num2;
-            whatToSee(num1, num2, num3);
+            sign='/';
+            whatToSee(num1, num2, num3, sign);
             break;
         case 5:
             cout<<endl;
@@ -132,7 +138,7 @@ void whatToDo(number num1, number num2){
         }
     }
 }
-void whatToSee(number num1, number num2, number num3){
+void whatToSee(number num1, number num2, number num3, char sign){
     short int option;
     cout<<"\nWhat do you what to see?\n1. Just result.\n2. All steps.\nChose option: ";
     cin>>option;
@@ -146,7 +152,7 @@ void whatToSee(number num1, number num2, number num3){
         cout<<endl;
         return;
     case 2:
-        show(num1, num2, num3);
+        show(num1, num2, num3, sign);
         cout<<endl;
         return;
     }
@@ -154,7 +160,7 @@ void whatToSee(number num1, number num2, number num3){
 void menu(){
     srand(time(NULL));
     number n1, n2;
+    cout<<"MAGIC CALCULATOR (octal)"<<endl;
     giveNumbers(&n1, &n2);
     whatToDo(n1, n2);
 }
-
