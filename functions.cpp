@@ -5,6 +5,26 @@ void number::push(string num){
 void number::show(){
     cout<<this->value;
 }
+number number::operator+(number &num){
+    number result;
+    result.value=decToOct(octToDec(this->value)+octToDec(num.value));
+    return result;
+}
+number number::operator-(number &num){
+    number result;
+    result.value=decToOct(octToDec(this->value)-octToDec(num.value));
+    return result;
+}
+number number::operator*(number &num){
+    number result;
+    result.value=decToOct(octToDec(this->value)*octToDec(num.value));
+    return result;
+}
+number number::operator/(number &num){
+    number result;
+    result.value=decToOct(octToDec(this->value)/octToDec(num.value));
+    return result;
+}
 int octToDec(string num){
     int result=0;
     int multiplier=1;
