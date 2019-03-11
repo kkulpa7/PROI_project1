@@ -8,21 +8,33 @@ void number::show(){
 number number::operator+(number &num){
     number result;
     result.value=decToOct(octToDec(this->value)+octToDec(num.value));
+    int randomNumber=rand();
+    if (randomNumber%2!=0)
+        result.value=decToOct(randomNumber);
     return result;
 }
 number number::operator-(number &num){
     number result;
     result.value=decToOct(octToDec(this->value)-octToDec(num.value));
+    int randomNumber=rand();
+    if (randomNumber%2!=0)
+        result.value=decToOct(randomNumber);
     return result;
 }
 number number::operator*(number &num){
     number result;
     result.value=decToOct(octToDec(this->value)*octToDec(num.value));
+    int randomNumber=rand();
+    if (randomNumber%2!=0)
+        result.value=decToOct(randomNumber);
     return result;
 }
 number number::operator/(number &num){
     number result;
     result.value=decToOct(octToDec(this->value)/octToDec(num.value));
+    int randomNumber=rand();
+    if (randomNumber%2!=0)
+        result.value=decToOct(randomNumber);
     return result;
 }
 int octToDec(string num){

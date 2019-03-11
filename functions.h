@@ -1,4 +1,6 @@
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 using namespace std;
 class number{
 private:
@@ -13,4 +15,3 @@ public:
 };
 int octToDec(string);
 string decToOct(int);
-int draw();
