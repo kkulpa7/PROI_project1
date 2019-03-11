@@ -5,6 +5,38 @@ void number::push(string num){
 void number::showValue(){
     cout<<this->value;
 }
+number number::operator+(number num){
+    number result;
+    result.value=decToOct(octToDec(this->value)+octToDec(num.value));
+    int randomNumber=rand();
+    if (randomNumber%2!=0)
+        result.value=decToOct(randomNumber);
+    return result;
+}
+number number::operator-(number num){
+    number result;
+    result.value=decToOct(octToDec(this->value)-octToDec(num.value));
+    int randomNumber=rand();
+    if (randomNumber%2!=0)
+        result.value=decToOct(randomNumber);
+    return result;
+}
+number number::operator*(number num){
+    number result;
+    result.value=decToOct(octToDec(this->value)*octToDec(num.value));
+    int randomNumber=rand();
+    if (randomNumber%2!=0)
+        result.value=decToOct(randomNumber);
+    return result;
+}
+number number::operator/(number num){
+    number result;
+    result.value=decToOct(octToDec(this->value)/octToDec(num.value));
+    int randomNumber=rand();
+    if (randomNumber%2!=0)
+        result.value=decToOct(randomNumber);
+    return result;
+}
 void show(number num){
     num.showValue();
 }
@@ -13,38 +45,6 @@ void show(number num1, number num2, number num3){
      num2.showValue();
      cout<<"=";
      num3.showValue();
-}
-number number::operator+(number &num){
-    number result;
-    result.value=decToOct(octToDec(this->value)+octToDec(num.value));
-    int randomNumber=rand();
-    if (randomNumber%2!=0)
-        result.value=decToOct(randomNumber);
-    return result;
-}
-number number::operator-(number &num){
-    number result;
-    result.value=decToOct(octToDec(this->value)-octToDec(num.value));
-    int randomNumber=rand();
-    if (randomNumber%2!=0)
-        result.value=decToOct(randomNumber);
-    return result;
-}
-number number::operator*(number &num){
-    number result;
-    result.value=decToOct(octToDec(this->value)*octToDec(num.value));
-    int randomNumber=rand();
-    if (randomNumber%2!=0)
-        result.value=decToOct(randomNumber);
-    return result;
-}
-number number::operator/(number &num){
-    number result;
-    result.value=decToOct(octToDec(this->value)/octToDec(num.value));
-    int randomNumber=rand();
-    if (randomNumber%2!=0)
-        result.value=decToOct(randomNumber);
-    return result;
 }
 int octToDec(string num){
     int result=0;
@@ -96,8 +96,65 @@ void giveNumbers(number *number1, number *number2){
     }
     (*number2).push(num2);
 }
+void whatToDo(number num1, number num2){
+    short int option;
+    number num3;
+    while(1){
+        cout<<"\nWhat do you want to do?\n1. Add numbers.\n2. Subtract numbers.\n3. Multiply numbers.\n4. Divide numbers.\n5. Give another numbers.\n6. Exit.\nChose option: ";
+        cin>>option;
+        while (option<1 || option>6){
+            cout<<"Wrong option! Chose option again: ";
+            cin>>option;
+        }
+        switch(option){
+        case 1:
+            num3=num1+num2;
+            whatToSee(num1, num2, num3);
+            break;
+        case 2:
+            num3=num1-num2;
+            whatToSee(num1, num2, num3);
+            break;
+        case 3:
+            num3=num1*num2;
+            whatToSee(num1, num2, num3);
+            break;
+        case 4:
+            num3=num1/num2;
+            whatToSee(num1, num2, num3);
+            break;
+        case 5:
+            cout<<endl;
+            giveNumbers(&num1, &num2);
+            break;
+        case 6:
+            return;
+        }
+    }
+}
+void whatToSee(number num1, number num2, number num3){
+    short int option;
+    cout<<"\nWhat do you what to see?\n1. Just result.\n2. All steps.\nChose option: ";
+    cin>>option;
+    while(option<1 || option>2){
+        cout<<"Wrong option! Chose option again: ";
+        cin>>option;
+    }
+    switch(option){
+    case 1:
+        show(num3);
+        cout<<endl;
+        return;
+    case 2:
+        show(num1, num2, num3);
+        cout<<endl;
+        return;
+    }
+}
 void menu(){
     srand(time(NULL));
     number n1, n2;
     giveNumbers(&n1, &n2);
+    whatToDo(n1, n2);
 }
+

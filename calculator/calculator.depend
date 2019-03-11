@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1552335430 source:c:\users\kasia\desktop\project1\main.cpp
+1552336410 source:c:\users\kasia\desktop\project1\main.cpp
 	"functions.h"
 
-1552335479 c:\users\kasia\desktop\project1\functions.h
+1552337963 c:\users\kasia\desktop\project1\functions.h
 	<iostream>
 	<ctime>
 	<cstdlib>
 
-1552333398 source:c:\users\kasia\desktop\project1\functions.cpp
+1552338076 source:c:\users\kasia\desktop\project1\functions.cpp
 	"functions.h"
 

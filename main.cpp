@@ -6,7 +6,5 @@ int main(){
     n1.push("3");
     n2.push("1");
     n3=n1+n2;
-    n4=n1-n2;
-    show(n3);
-    show(n4);*/
+    show(n3);*/
 }
