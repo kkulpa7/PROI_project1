@@ -50,16 +50,26 @@ void show(number num1, number num2, number num3, char sign){
 int octToDec(string num){
     int result=0;
     int multiplier=1;
+    short int mod=1;
+    if (num[0]=='-'){
+        mod=-1;
+        num=num.substr(1, num.length()-1);
+    }
     for (int a=num.length()-1; a>=0; a--){
         result+=(num[a]-'0')*multiplier;
         multiplier*=8;
     }
-    return result;
+    return mod*result;
 }
 string decToOct(int num){
     string result="";
     int divider=1;
     char sign;
+    short int mod=1;
+    if (num<0){
+        mod=-1;
+        num*=-1;
+    }
     while(divider<=num)
         divider*=8;
     while(num>0 || divider!=1){
@@ -70,14 +80,19 @@ string decToOct(int num){
     }
     if(result=="")
         return "0";
+    if (mod==-1)
+        result='-'+result;
     return result;
 }
 bool checkingNumber(string num){
-    if (num[0]=='0')
+    if (num.length()>1 && (num[0]=='0' || (num[0]=='-' && num[1]=='0')))
         return false;
-    for (int a=0; a<num.length(); a++)
+    for (int a=0; a<num.length(); a++){
+        if (num[a]=='-' && a==0)
+            continue;
         if (num[a]>='8' || num[a]<'0')
             return false;
+    }
     return true;
 }
 void giveNumbers(number *number1, number *number2){
