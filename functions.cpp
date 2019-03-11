@@ -2,8 +2,17 @@
 void number::push(string num){
     this->value=num;
 }
-void number::show(){
+void number::showValue(){
     cout<<this->value;
+}
+void show(number num){
+    num.showValue();
+}
+void show(number num1, number num2, number num3){
+     num1.showValue();
+     num2.showValue();
+     cout<<"=";
+     num3.showValue();
 }
 number number::operator+(number &num){
     number result;
@@ -61,4 +70,34 @@ string decToOct(int num){
     if(result=="")
         return "0";
     return result;
+}
+bool checkingNumber(string num){
+    if (num[0]=='0')
+        return false;
+    for (int a=0; a<num.length(); a++)
+        if (num[a]>='8' || num[a]<'0')
+            return false;
+    return true;
+}
+void giveNumbers(number *number1, number *number2){
+    string num1, num2;
+    cout<<"First number: ";
+    cin>>num1;
+    while(!checkingNumber(num1)){
+        cout<<"Wrong data! Give first number again: ";
+        cin>>num1;
+    }
+    (*number1).push(num1);
+    cout<<"Second number: ";
+    cin>>num2;
+    while(!checkingNumber(num2)){
+        cout<<"Wrong data! Give second number again: ";
+        cin>>num2;
+    }
+    (*number2).push(num2);
+}
+void menu(){
+    srand(time(NULL));
+    number n1, n2;
+    giveNumbers(&n1, &n2);
 }
