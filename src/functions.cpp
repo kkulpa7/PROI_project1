@@ -1,51 +1,48 @@
 #include "functions.h"
-void number::push(string num){
+//using namespace std;
+void Number::getValue(string num){
     this->value=num;
 }
-void number::showValue(){
-    cout<<this->value;
+string Number::getValue(){
+    return this->value;
 }
-number number::operator+(number num){
-    number result;
+Number Number::operator+(Number num){
+    Number result;
     result.value=decToOct(octToDec(this->value)+octToDec(num.value));
     int randomNumber=rand();
     if (randomNumber%2!=0)
         result.value=decToOct(randomNumber);
     return result;
 }
-number number::operator-(number num){
-    number result;
+Number Number::operator-(Number num){
+    Number result;
     result.value=decToOct(octToDec(this->value)-octToDec(num.value));
     int randomNumber=rand();
     if (randomNumber%2!=0)
         result.value=decToOct(randomNumber);
     return result;
 }
-number number::operator*(number num){
-    number result;
+Number Number::operator*(Number num){
+    Number result;
     result.value=decToOct(octToDec(this->value)*octToDec(num.value));
     int randomNumber=rand();
     if (randomNumber%2!=0)
         result.value=decToOct(randomNumber);
     return result;
 }
-number number::operator/(number num){
-    number result;
+Number Number::operator/(Number num){
+    Number result;
     result.value=decToOct(octToDec(this->value)/octToDec(num.value));
     int randomNumber=rand();
     if (randomNumber%2!=0)
         result.value=decToOct(randomNumber);
     return result;
 }
-void show(number num){
-    num.showValue();
+void show(Number num){
+    cout<<num.getValue();
 }
-void show(number num1, number num2, number num3, char sign){
-     num1.showValue();
-     cout<<sign;
-     num2.showValue();
-     cout<<"=";
-     num3.showValue();
+void show(Number num1, Number num2, Number num3, char sign){
+     cout<<num1.getValue()<<sign<<num2.getValue()<<"="<<num3.getValue();
 }
 int octToDec(string num){
     int result=0;
@@ -95,7 +92,7 @@ bool checkingNumber(string num){
     }
     return true;
 }
-void giveNumbers(number *number1, number *number2){
+void giveNumbers(Number *number1, Number *number2){
     string num1, num2;
     cout<<"First number: ";
     cin>>num1;
@@ -103,18 +100,18 @@ void giveNumbers(number *number1, number *number2){
         cout<<"Wrong data! Give first number again: ";
         cin>>num1;
     }
-    (*number1).push(num1);
+    (*number1).setValue(num1);
     cout<<"Second number: ";
     cin>>num2;
     while(!checkingNumber(num2)){
         cout<<"Wrong data! Give second number again: ";
         cin>>num2;
     }
-    (*number2).push(num2);
+    (*number2).setValue(num2);
 }
-void whatToDo(number num1, number num2){
+void whatToDo(Number num1, Number num2){
     short int option;
-    number num3;
+    Number num3;
     char sign;
     while(1){
         cout<<"\nWhat do you want to do?\n1. Add numbers.\n2. Subtract numbers.\n3. Multiply numbers.\n4. Divide numbers.\n5. Give another numbers.\n6. Exit.\nChose option: ";
@@ -153,7 +150,7 @@ void whatToDo(number num1, number num2){
         }
     }
 }
-void whatToSee(number num1, number num2, number num3, char sign){
+void whatToSee(Number num1, Number num2, Number num3, char sign){
     short int option;
     cout<<"\nWhat do you what to see?\n1. Just result.\n2. All steps.\nChose option: ";
     cin>>option;
@@ -174,7 +171,7 @@ void whatToSee(number num1, number num2, number num3, char sign){
 }
 void menu(){
     srand(time(NULL));
-    number n1, n2;
+    Number n1, n2;
     cout<<"MAGIC CALCULATOR (octal)"<<endl;
     giveNumbers(&n1, &n2);
     whatToDo(n1, n2);

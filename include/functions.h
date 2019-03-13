@@ -2,23 +2,29 @@
 #include <ctime>
 #include <cstdlib>
 using namespace std;
-class number{
+class Number{
 private:
     string value;
 public:
-    void push(string);
-    void showValue();
-    number operator+(number);
-    number operator-(number);
-    number operator*(number);
-    number operator/(number);
+    void setValue(string);
+    string getValue();
+    Number operator+(Number);
+    Number operator-(Number);
+    Number operator*(Number);
+    Number operator/(Number);
 };
-void show(number);
-void show(number, number, number, char);
+/*class Calculator{
+private:
+	Number firstNumber;
+	Number secondNumber;
+public:
+}*/
+void show(Number);
+void show(Number, Number, Number, char);
 int octToDec(string);
 string decToOct(int);
 bool checkingNumer (string);
-void giveNumbers(number, number);
-void whatToDo(number, number);
-void whatToSee(number, number, number, char);
+void giveNumbers(Number, Number);
+void whatToDo(Number, Number);
+void whatToSee(Number, Number, Number, char);
 void menu();
