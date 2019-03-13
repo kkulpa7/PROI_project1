@@ -33,8 +33,16 @@ void Calculator::giveData(Calculator *calculator){
         cout<<"Wrong data! Give second number again: ";
         cin>>num;
     }
-    number2.setValue(num);
     whatToDo(&sign);
+	while (num=="0" && sign=='/'){
+		cout<<"\nYou can not divide by 0!\nGive second number again: ";
+		cin>>num;
+		while(!checkingNumber(num)){
+        		cout<<"\nWrong data! Give second number again: ";
+			cin>>num;
+		}
+    }
+    number2.setValue(num);
     (*calculator).setValue(number1, number2, sign);
 }
 void Calculator::whatToDo(char *sign){
@@ -63,7 +71,7 @@ void Calculator::whatToDo(char *sign){
 bool Calculator::checkingNumber(string num){
     if (num.length()>1 && (num[0]=='0' || (num[0]=='-' && num[1]=='0')))
         return false;
-    for (int a=0; a<num.length(); a++){
+    for (unsigned int a=0; a<num.length(); a++){
         if (num[a]=='-' && a==0)
             continue;
         if (num[a]>='8' || num[a]<'0')
