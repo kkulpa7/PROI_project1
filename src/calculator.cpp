@@ -1,4 +1,4 @@
-#include "calculator.h"
+#include "Functions.h"
 using namespace std;
 void Calculator::setValue(Number num1, Number num2, char sign){
     this->firstNumber=num1;

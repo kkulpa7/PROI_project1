@@ -1,4 +1,6 @@
-#include "number.h"
+#include "Number.h"
+#ifndef CALCULATOR_H
+#endif CALCULATOR_H
 class Calculator{
 private:
     Number firstNumber;
@@ -14,3 +16,4 @@ public:
     void whatToSee(Calculator);
     void all(Calculator);
 };
+#endif
