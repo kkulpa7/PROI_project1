@@ -1,2 +1,2 @@
-# project1
+# Project1
  Magic calculator (octal system)
