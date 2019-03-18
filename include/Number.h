@@ -2,7 +2,7 @@
 #include <ctime>
 #include <cstdlib>
 #ifndef NUMBER_H
-#endif NUMBER_H
+#define NUMBER_H
 class Number{
 private:
     std::string value;
