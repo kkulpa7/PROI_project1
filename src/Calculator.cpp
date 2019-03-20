@@ -16,7 +16,7 @@ void Calculator::setValue(Number num1, Number num2, char sign){
 void Calculator::show(){
     cout<<this->firstNumber.getValue()<<this->operation<<this->secondNumber.getValue()<<"="<<this->resultNumber.getValue();
 }
-void Calculator::giveData(Calculator *calculator){
+void Calculator::giveData(){
     Number number1, number2;
     string num;
     char sign;
@@ -43,7 +43,7 @@ void Calculator::giveData(Calculator *calculator){
 		}
     }
     number2.setValue(num);
-    (*calculator).setValue(number1, number2, sign);
+    setValue(number1, number2, sign);
 }
 void Calculator::whatToDo(char *sign){
     short int option;

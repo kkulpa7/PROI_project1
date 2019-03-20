@@ -11,7 +11,7 @@ public:
     void setValue(Number, Number, char);
     void show();
     bool checkingNumber(std::string);
-    void giveData(Calculator *);
+    void giveData();
     void whatToDo(char *);
     void whatToSee();
 };

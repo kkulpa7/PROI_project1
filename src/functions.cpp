@@ -7,8 +7,8 @@ void menu(){
     Calculator calculator;
     short int option;
     while(1){
-        calculator.giveData(&calculator);
-        calculator.whatToSee(calculator);
+        calculator.giveData();
+        calculator.whatToSee();
         cout<<"\nDo you want to continue program?\n1. Yes.\n2. No.\nChoose option: ";
         cin>>option;
         while(option<1 || option>2){
