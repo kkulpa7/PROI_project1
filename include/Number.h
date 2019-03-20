@@ -1,8 +1,7 @@
-#include <iostream>
-#include <ctime>
-#include <cstdlib>
 #ifndef NUMBER_H
 #define NUMBER_H
+#include <iostream>
+#include <cstdlib>
 class Number{
 private:
     std::string value;

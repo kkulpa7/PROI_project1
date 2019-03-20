@@ -1,4 +1,4 @@
-#include "Functions.h"
+#include "Calculator.h"
 using namespace std;
 void Calculator::setValue(Number num1, Number num2, char sign){
     this->firstNumber=num1;
@@ -79,7 +79,7 @@ bool Calculator::checkingNumber(string num){
     }
     return true;
 }
-void Calculator::whatToSee(Calculator calculator){
+void Calculator::whatToSee(){
     short int option;
     cout<<"\nWhat do you what to see?\n1. Just result.\n2. All steps.\nChoose option: ";
     cin>>option;
@@ -89,11 +89,11 @@ void Calculator::whatToSee(Calculator calculator){
     }
     switch(option){
     case 1:
-        (calculator.resultNumber).show();
+        resultNumber.show();
         cout<<endl;
         return;
     case 2:
-        calculator.show();
+        show();
         cout<<endl;
         return;
     }

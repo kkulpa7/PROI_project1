@@ -1,4 +1,5 @@
-#include "Functions.h"
+#include "Calculator.h"
+#include "functions.h"
 using namespace std;
 void menu(){
     srand(time(NULL));

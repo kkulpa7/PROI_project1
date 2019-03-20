@@ -1,6 +1,6 @@
-#include "Number.h"
 #ifndef CALCULATOR_H
 #define CALCULATOR_H
+#include "Number.h"
 class Calculator{
 private:
     Number firstNumber;
@@ -13,7 +13,6 @@ public:
     bool checkingNumber(std::string);
     void giveData(Calculator *);
     void whatToDo(char *);
-    void whatToSee(Calculator);
-    void all(Calculator);
+    void whatToSee();
 };
 #endif
