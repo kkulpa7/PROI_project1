@@ -1,5 +1,7 @@
 #include "Calculator.h"
 #include "functions.h"
+#include <ctime>
+#include <cstdlib>
 using namespace std;
 void menu(){
     srand(time(NULL));
